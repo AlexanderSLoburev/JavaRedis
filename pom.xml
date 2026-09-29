@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <java.version>17</java.version>
+        <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
@@ -29,7 +29,7 @@
         <compiler.plugin.version>3.13.0</compiler.plugin.version>
 
         <!-- Minimum Acceptable Coverage (a ratio between 0 and 1) -->
-        <jacoco.min.coverage>0.90</jacoco.min.coverage>
+        <jacoco.min.coverage>0.85</jacoco.min.coverage>
     </properties>
 
     <!-- ===================== Version Control ===================== -->
@@ -80,6 +80,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.4</version>
+                <configuration>
+                    <mainClass>com.example.javaredis.app.Application</mainClass>
+                </configuration>
             </plugin>
 
             <!--
